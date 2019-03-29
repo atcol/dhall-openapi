@@ -1,12 +1,12 @@
-let Single  = { schema   : ./SchemaRef.dhall
-              , example  : Text
-              , encoding : ./Encoding.dhall 
+let Single  = { schema   : Optional ./SchemaRef.dhall
+              , example  : Optional Text
+              , encoding : Optional ./Encoding.dhall 
               }
-let MultiEx = { schema   : ./SchemaRef.dhall
-              , examples : List { mapKey : Text, mapValue : ./ExampleRef.dhall }
-              , encoding : ./Encoding.dhall 
+let MultiEx = { schema   : Optional ./SchemaRef.dhall
+              , examples : Optional (List { mapKey : Text, mapValue : ./ExampleRef.dhall })
+              , encoding : Optional ./Encoding.dhall 
               }
 in
 < SingleEx : Single
-| MultipleE: MultiEx
+| MultipleEx : MultiEx
 >
