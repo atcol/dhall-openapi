@@ -1,1 +1,2 @@
-< Resp : ./Response.dhall | Ref : ./Reference.dhall >
+\(a : Type) -> < Resp : ./Response.dhall a 
+               | Ref : ./Reference.dhall >

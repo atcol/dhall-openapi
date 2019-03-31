@@ -5,7 +5,7 @@
 , operationId  : Text
 , parameters   : ./ParamRef.dhall
 , requestBody  : ./ReqRef.dhall
-, responses    : ./Response.dhall
+, responses    : ./Responses.dhall
 , callbacks    : List { mapKey : Text, mapValue: List ./CallbackRef.dhall }
 , deprecated   : Bool
 , security     : List ./Security.dhall

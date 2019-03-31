@@ -1,12 +1,12 @@
-let Single  = { schema   : Optional ./SchemaRef.dhall
-              , example  : Optional Text
-              , encoding : Optional ./Encoding.dhall 
-              }
-let MultiEx = { schema   : Optional ./SchemaRef.dhall
-              , examples : Optional (List { mapKey : Text, mapValue : ./ExampleRef.dhall })
-              , encoding : Optional ./Encoding.dhall 
-              }
-in
-< SingleEx : Single
-| MultipleEx : MultiEx
->
+let Example   = ./Example.dhall
+let MediaType = \(a : Type) ->
+  < Single : { schema   : ./SchemaRef.dhall
+             , example  : Example a
+             , encoding : Optional ./Encoding.dhall 
+             }
+  | Multiple : { schema   : Optional ./SchemaRef.dhall
+               , examples : (List { mapKey : Text, mapValue : (Example a) })
+               , encoding : Optional ./Encoding.dhall 
+               }
+  >
+in MediaType
